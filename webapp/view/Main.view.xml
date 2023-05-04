@@ -1,0 +1,119 @@
+<mvc:View controllerName="tallerfinal.tallerfinal.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <f:SimpleForm id="SimpleFormChange354"
+                    editable="true"
+                    layout="ResponsiveGridLayout"
+                    title="{i18n>formMat}"
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false" >
+                    <f:content>
+                        <Label text="{i18n>material}" />
+                        <Input id="name" value="{mmodelo>/LineaMaterial/Matnr}" />
+                        <Label text="{i18n>tipMat}" />
+                        <Select id="country" selectedKey="{mmodelo>/LineaMaterial/Mtart}" items="{mmodelo>/TiposMat}">
+                            <items>
+                                <core:Item text="{mmodelo>Text}" key="{mmodelo>Mtart}"/>
+                            </items>
+                        </Select>
+                        <Label text="{i18n>cenAlm}" />
+                        <Input value="{mmodelo>/LineaMaterial/Werks}">
+                        </Input>
+                        <Input value="{mmodelo>/LineaMaterial/Lgort}">
+                            <layoutData>
+                                <l:GridData span="XL1 L2 M2 S4" />
+                            </layoutData>
+                        </Input>
+                        <Label text="{i18n>peso}" />
+                        <Input value="{mmodelo>/LineaMaterial/Ntgew}">
+                        </Input>
+                        <Input value="{mmodelo>/LineaMaterial/Gewei}">
+                            <layoutData>
+                                <l:GridData span="XL1 L2 M2 S4" />
+                            </layoutData>
+                        </Input>
+                    </f:content>
+                </f:SimpleForm>
+
+                <Table id="idProductsTable"
+                    inset="false"
+                    items="{
+                        path: 'mmodelo>/Materiales',
+                        sorter: {
+                            path: 'Matnr'
+                        }
+                    }">
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <content>
+                            <Title text="{i18n>materiales}" level="H2"/>
+                            <ToolbarSpacer />
+                            <SearchField search="onSearch" width="50%"/>
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column
+                        width="12em">
+                        <Text text="{i18n>material}" />
+                    </Column>
+                    <Column
+                        minScreenWidth="Tablet"
+                        demandPopin="true">
+                        <Text text="{i18n>tipMat}" />
+                    </Column>
+                    <Column
+                        minScreenWidth="Desktop"
+                        demandPopin="true"
+                        hAlign="End">
+                        <Text text="{i18n>cenAlm}" />
+                    </Column>
+                    <Column
+                        hAlign="End">
+                        <Text text="{i18n>peso}" />
+                    </Column>
+                    <Column
+                        hAlign="End">
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem vAlign="Middle" type="Navigation" press="onEditar">
+                        <cells>
+                            <ObjectIdentifier
+                                title="{mmodelo>Matnr}"/>
+                            <Text
+                                text="{mmodelo>Mtart}" />
+                            <Text
+                                text="{mmodelo>Werks} - {mmodelo>Lgort}" />
+                            <ObjectNumber
+                                    number="{mmodelo>Ntgew}"
+                                    unit="{mmodelo>Gewei}" />
+                            <Button icon="sap-icon://delete" press="onDelete"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+            </VBox>
+        </content>
+        <footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button text="{i18n>grabar}" type="Accept" icon="sap-icon://save" press="onPress"/>
+			</OverflowToolbar>
+		</footer>
+    </Page>
+</mvc:View>

@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "2.5"
+metadata:
+  name: tallerfinal.tallerfinal
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: fiori
+          url: http://200.75.112.156:8000
+        app:
+          name: ZF_TEST02
+          description: Capacita fiori
+          package: $tmp
+          transport: S4DK925457

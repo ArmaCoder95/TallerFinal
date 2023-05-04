@@ -1,0 +1,55 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+<Dialog title="Editar">
+    <VBox xmlns:html="http://www.w3.org/1999/xhtml" width="100%" direction="Column" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+        <items>
+            <f:SimpleForm id="SimpleFormChange354"
+                        editable="true"
+                        layout="ResponsiveGridLayout"
+                        labelSpanXL="3"
+                        labelSpanL="3"
+                        labelSpanM="3"
+                        labelSpanS="12"
+                        adjustLabelSpan="false"
+                        emptySpanXL="4"
+                        emptySpanL="4"
+                        emptySpanM="4"
+                        emptySpanS="0"
+                        columnsXL="1"
+                        columnsL="1"
+                        columnsM="1"
+                        singleContainerFullSize="false" >
+                        <f:content>
+                            <Label text="{i18n>material}" />
+                            <Input id="name" value="{mmodelo>/LineaMaterialEdit/Matnr}" enabled="false"/>
+                            <Label text="{i18n>tipMat}" />
+                            <Select id="country" selectedKey="{mmodelo>/LineaMaterialEdit/Mtart}" items="{mmodelo>/TiposMat}">
+                                <items>
+                                    <core:Item text="{mmodelo>Text}" key="{mmodelo>Mtart}"/>
+                                </items>
+                            </Select>
+                            <Label text="{i18n>cenAlm}" />
+                            <Input value="{mmodelo>/LineaMaterialEdit/Werks}">
+                            </Input>
+                            <Input value="{mmodelo>/LineaMaterialEdit/Lgort}">
+                                <layoutData>
+                                    <l:GridData span="XL1 L2 M2 S4" />
+                                </layoutData>
+                            </Input>
+                            <Label text="{i18n>peso}" />
+                            <Input value="{mmodelo>/LineaMaterialEdit/Ntgew}">
+                            </Input>
+                            <Input value="{mmodelo>/LineaMaterialEdit/Gewei}">
+                                <layoutData>
+                                    <l:GridData span="XL1 L2 M2 S4" />
+                                </layoutData>
+                            </Input>
+
+                            <Label text="{i18n>Aceptar}" />
+                            <Button text="Aceptar" press="onAceptar"/>
+                            <Button text="Cerrar" press="onClose"/>
+                        </f:content>
+                    </f:SimpleForm>
+            </items>
+    </VBox>
+</Dialog>
+</core:FragmentDefinition>

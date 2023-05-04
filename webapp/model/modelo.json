@@ -1,0 +1,25 @@
+{
+    "Materiales":[],
+    "TiposMat":[
+        {
+            "Mtart": "",
+            "Text": ""
+        },
+        {
+            "Mtart": "ROH",
+            "Text": "Materia Prima"
+        },
+        {
+            "Mtart": "HALB",
+            "Text": "Semielaborado"
+        },
+        {
+            "Mtart": "FERT",
+            "Text": "Terminado"
+        }
+    ],
+    "LineaMaterial": {},
+    "LineaMaterialEdit": {},
+    "path": ""
+    
+    }
